@@ -7,8 +7,8 @@
         </h1>
         <div class="weather-search">
           <input type="text" placeholder="Enter city" v-model="city" />
-          <button @click="getOneDayForecast">get one day forecast</button>
-          <button @click="getFifeDayForecast">get fife day forecast</button>
+          <button @click="getOneDayForecast">1 DAY</button>
+          <button @click="getFifeDayForecast">5 DAY</button>
         </div>
         <p v-if="error" class="center">{{ error }}</p>
         <div class="weather-item" v-else-if="forecast.cityName">
@@ -100,7 +100,7 @@ export default {
           this.error = e.response.data.message;
         });
 
-      this.forecast.city = "";
+      this.city = "";
       this.forecast.cityName = "";
       this.forecast.currentTemp = "";
       this.forecast.minTemp = "";
@@ -123,9 +123,6 @@ export default {
         });
     }
   },
-  // mounted() {
-  //   this.getOneDayForecast();
-  // },
   filters: {
     fixTemperature: function(value) {
       return value.toFixed(0);
@@ -167,9 +164,28 @@ body {
     justify-content: space-evenly;
 
     input {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 100;
+      text-shadow: 0px 0px 2px #000000;
+      color: #000;
+      background-color: rgba(tan, 0.5);
+      outline: none;
+      border: none;
+      border-radius: 15px;
+      padding: 5px 10px;
     }
 
     button {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 100;
+      text-shadow: 0px 0px 2px #000000;
+      color: #000;
+      background-color: tan;
+      outline: none;
+      cursor: pointer;
+      border: none;
+      border-radius: 15px;
+      padding: 5px 10px;
     }
   }
 
